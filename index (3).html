@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>📋 Task Manager</h1>
+      <p class="subtitle">Stay organized, stay productive</p>
+    </header>
+
+    <main class="container">
+      <!-- Add Task Form -->
+      <section class="card add-task-card">
+        <form id="task-form" class="task-form">
+          <div class="form-row">
+            <input
+              type="text"
+              id="task-input"
+              placeholder="What needs to be done?"
+              autocomplete="off"
+              required
+            />
+          </div>
+          <div class="form-row form-row-grid">
+            <select id="priority-input" aria-label="Priority">
+              <option value="High">High Priority</option>
+              <option value="Medium" selected>Medium Priority</option>
+              <option value="Low">Low Priority</option>
+            </select>
+            <input type="date" id="due-date-input" aria-label="Due date" />
+            <button type="submit" id="submit-btn" class="btn btn-primary">
+              <span id="submit-btn-text">Add Task</span>
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Stats -->
+      <section class="stats">
+        <div class="stat-box">
+          <span class="stat-number" id="total-count">0</span>
+          <span class="stat-label">Total</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number" id="pending-count">0</span>
+          <span class="stat-label">Pending</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number" id="completed-count">0</span>
+          <span class="stat-label">Completed</span>
+        </div>
+      </section>
+
+      <!-- Controls: search + filter -->
+      <section class="controls card">
+        <input
+          type="text"
+          id="search-input"
+          class="search-input"
+          placeholder="🔍 Search tasks..."
+        />
+        <div class="filter-group" role="tablist" aria-label="Filter tasks">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="pending">Pending</button>
+          <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+      </section>
+
+      <!-- Task list -->
+      <section class="card task-list-card">
+        <ul id="task-list" class="task-list"></ul>
+        <div id="empty-state" class="empty-state">
+          <p>🎉 No tasks here. Add one above to get started!</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>Built with vanilla HTML, CSS &amp; JavaScript</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
